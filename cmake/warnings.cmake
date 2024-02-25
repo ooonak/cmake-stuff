@@ -38,11 +38,9 @@ macro(set_warnings)
     endif()
 
     if (as_errors)
-      set(MY_FLAGS "${MY-FLAGS} -Werror")
+      set(MY_FLAGS "${MY_FLAGS} -Werror")
     endif()
 
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MY_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MY_FLAGS}")
-
-  endmacro()
-
+endmacro()

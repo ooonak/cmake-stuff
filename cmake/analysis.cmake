@@ -19,8 +19,6 @@ macro(enable_cppcheck)
             "--inconclusive"
             "--force"
             "--inline-suppr"
-            "--enable=information"
-            "--check-config"
             "--suppressions-list=${CMAKE_SOURCE_DIR}/CppCheckSuppressions.txt"
     )
   endif()
