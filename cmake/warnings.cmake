@@ -20,12 +20,12 @@ macro(set_warnings)
         set(MY_FLAGS "${MY_FLAGS} -D_GLIBCXX_ASSERTIONS")
         set(MY_FLAGS "${MY_FLAGS} -fstrict-flex-arrays=3")
         set(MY_FLAGS "${MY_FLAGS} -fstack-clash-protection -fstack-protector-strong")
-        set(MY_FLAGS "${MY_FLAGS} -Wl,-z,nodlopen -Wl,-z,noexecstack")
-        set(MY_FLAGS "${MY_FLAGS} -Wl,-z,relro -Wl,-z,now")
 
         if (MY_COMPILER_ID STREQUAL "Clang")
 
         elseif (MY_COMPILER_ID STREQUAL "GNU")
+            set(MY_FLAGS "${MY_FLAGS} -Wl,-z,nodlopen -Wl,-z,noexecstack")
+            set(MY_FLAGS "${MY_FLAGS} -Wl,-z,relro -Wl,-z,now")
             set(MY_FLAGS "${MY_FLAGS} -Wtrampolines")
         endif()
 
@@ -43,4 +43,5 @@ macro(set_warnings)
 
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MY_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MY_FLAGS}")
+
 endmacro()

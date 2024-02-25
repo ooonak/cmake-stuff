@@ -29,11 +29,21 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIE -fcf-protection=full -O2")
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -mbranch-protection=standard -O2")
 
 message("${CMAKE_CXX_FLAGS}")
+```
 
-$ conan build .
-# Or
-$ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang
+```bash
+$ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++
 $ cmake --build build
 
+# Or just
+
+$ conan build .
+$ ./build/Release/test-cmake-stuff
+test-cmake-stuff/0.0.1: Hello World Release!
+  test-cmake-stuff/0.0.1: __x86_64__ defined
+  test-cmake-stuff/0.0.1: _GLIBCXX_USE_CXX11_ABI 1
+  test-cmake-stuff/0.0.1: __cplusplus201703
+  test-cmake-stuff/0.0.1: __GNUC__13
+  test-cmake-stuff/0.0.1: __GNUC_MINOR__2
 ```
 
